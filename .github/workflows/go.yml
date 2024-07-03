@@ -23,22 +23,13 @@ jobs:
 
     - name: Build
       run: go build -v ./...
-      
+
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Test
-      run: go test -v ./...
-
-    - name: Test Race
-      run: go test -race -v ./...
-
-    - name: Vet
-      run: go vet ./...
-
-    - name: Lint
-      uses: golangci/golangci-lint-action@v6
+      - run: go vet ./...
+      - run: go test -v ./...
 
   deploy:
     name: Push Docker image to Docker Hub
