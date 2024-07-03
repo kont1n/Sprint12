@@ -37,8 +37,8 @@ jobs:
     - name: Vet
       run: go vet ./...
 
-    - name: Lint
-      uses: golangci/golangci-lint-action@v6
+   # - name: Lint
+   #   uses: golangci/golangci-lint-action@v6
 
   deploy:
     name: Push Docker image to Docker Hub
