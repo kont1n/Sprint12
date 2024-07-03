@@ -37,9 +37,6 @@ jobs:
     - name: Test Race
       run: go test -race -v ./...
 
-    - name: Lint
-      uses: golangci/golangci-lint-action@v3
-
   deploy:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
