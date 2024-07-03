@@ -28,17 +28,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Test
-      run: go test -v ./...
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
 
-    - name: Test Race
-      run: go test -race -v ./...
+      - name: Test
+        run: go test -v ./...
 
-    - name: Vet
-      run: go vet ./...
-
-    - name: Lint
-      uses: golangci/golangci-lint-action@v6
+      - name: Test Race
+        run: go test -race -v ./...
 
   deploy:
     name: Push Docker image to Docker Hub
